@@ -1,9 +1,11 @@
-import './App.css';
+import NavigationBar from './components/NavigationBar';
+import ToDoComponent from './components/ToDoComponent';
 
 function App() {
   return (
     <div className="App">
-            <p>This is first and a test change.</p>
+      <NavigationBar />
+      <ToDoComponent />
     </div>
   );
 }
