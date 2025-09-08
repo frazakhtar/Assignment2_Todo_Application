@@ -1,27 +1,43 @@
 import React, { useEffect, useState } from "react";
+ import { ToastContainer, toast } from 'react-toastify';
 
 const ToDoComponent = () => {
   const [input, setInput] = useState();
   const [todos, setToDos] = useState([]);
   const [isChecked, setIsChecked] = useState([]);
+
   useEffect(() => {
   }, [input, todos]);
   const handleChange = (e) => {
     setInput(() => e.target.value);
   };
+
   const handleCheckboxChange = (index)=>{
         setIsChecked(prev => prev.map((ck, idx)=>idx===index? !ck: ck))
   }
+
   const handleClick = () => {
-    setToDos((prev) => [...prev, input]);
+    if(input){
+        setToDos((prev)=>[...prev, input])
+        notify();
+    }else{
+        alert("You cannot submit empty todo")
+    }
     setIsChecked(prev => [...prev, false]);
+    setInput("");
+
   };
+
+  const notify = ()=> toast("Todo Added Successfully")
+
   return (
     <div className="container">
+    <ToastContainer />
       <input
         className="input"
         type="text"
         placeholder="ToDo Title"
+        value={input}
         onChange={(e) => handleChange(e)}
       />
       <button onClick={handleClick}>Add To-Do</button>
