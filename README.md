@@ -1,5 +1,5 @@
 ## Netlify Url for this application
-https://fanciful-alfajores-3f52b1.netlify.app/
+https://endearing-palmier-af90d1.netlify.app/
 
 ## Available Scripts
 

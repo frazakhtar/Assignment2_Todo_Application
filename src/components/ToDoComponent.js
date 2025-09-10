@@ -37,7 +37,7 @@ const ToDoComponent = () => {
       <input
         className="input"
         type="text"
-        placeholder="&nbsp;&nbsp;ToDo Title"
+        placeholder="&nbsp;ToDo Title"
         value={input}
         onChange={(e) => handleChange(e)}
       />
