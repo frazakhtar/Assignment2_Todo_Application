@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
- import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import Paper from '@mui/material/Paper';
 
 const ToDoComponent = () => {
-  const [input, setInput] = useState();
+  const [input, setInput] = useState("");
   const [todos, setToDos] = useState([]);
   const [isChecked, setIsChecked] = useState([]);
 
@@ -17,15 +18,14 @@ const ToDoComponent = () => {
   }
 
   const handleClick = () => {
-    if(input){
+    if(input.trim()===""){
+        alert("You cannot submit empty todo")
+    }else{
         setToDos((prev)=>[...prev, input])
         notify();
-    }else{
-        alert("You cannot submit empty todo")
     }
     setIsChecked(prev => [...prev, false]);
     setInput("");
-
   };
 
   const notify = ()=> toast("Todo Added Successfully")
@@ -33,6 +33,7 @@ const ToDoComponent = () => {
   return (
     <div className="container">
     <ToastContainer />
+    <div style={{display:'flex'}}>
       <input
         className="input"
         type="text"
@@ -41,14 +42,18 @@ const ToDoComponent = () => {
         onChange={(e) => handleChange(e)}
       />
       <button onClick={handleClick}>Add To-Do</button>
+      </div>
+      
       <div className="displayTodos">
         {todos.length != 0 ? (
           todos.map((elem, index) => {
             return (
-              <div key={index} style={{ display: "flex" }}>
+             <Paper elevation={3} sx={{p:2,m:2}}>
+                <div key={index} style={{ display: "flex" }}>
                 <input type="checkbox" checked={isChecked[index]} id="checkbox" value={index} onChange={()=>handleCheckboxChange(index)} />
                 <div className={isChecked[index]?"strikethrough-text":""}>{elem}</div>
-              </div>
+                </div>
+              </Paper>
             );
           })
         ) : (
