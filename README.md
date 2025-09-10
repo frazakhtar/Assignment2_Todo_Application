@@ -1,5 +1,5 @@
 ## Netlify Url for this application
-https://fancy-babka-1009f5.netlify.app
+https://fanciful-alfajores-3f52b1.netlify.app/
 
 ## Available Scripts
 
