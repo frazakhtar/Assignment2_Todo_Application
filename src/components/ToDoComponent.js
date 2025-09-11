@@ -33,15 +33,15 @@ const ToDoComponent = () => {
   return (
     <div className="container">
     <ToastContainer />
-    <div style={{display:'flex'}}>
+    <div className="input-button-wrapper">
       <input
-        className="input"
+        className="input same-size"
         type="text"
-        placeholder="&nbsp;ToDo Title"
+        placeholder="ToDo Title"
         value={input}
         onChange={(e) => handleChange(e)}
       />
-      <button onClick={handleClick}>Add To-Do</button>
+      <button className="same-size" onClick={handleClick}>Add To-Do</button>
       </div>
       
       <div className="displayTodos">

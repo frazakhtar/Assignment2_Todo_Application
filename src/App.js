@@ -1,3 +1,6 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 import NavigationBar from './components/NavigationBar';
 import ToDoComponent from './components/ToDoComponent';
 
